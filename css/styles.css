@@ -1,0 +1,202 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+    color: #333;
+}
+
+nav {
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+}
+
+nav ul li {
+    position: relative;
+}
+
+nav ul li a, .dropbtn {
+    display: block;
+    color: #333;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+nav ul li a:hover, .dropdown:hover .dropbtn {
+    background-color: #f1f1f1;
+    border-radius: 8px;
+}
+
+nav ul li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #6c7ae0;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #e0e0e0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+}
+
+#searchInput {
+    width: 80%;
+    margin: 20px auto;
+    padding: 10px;
+    display: block;
+    font-size: 16px;
+}
+
+/* 新增的样式 */
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* 根据导航栏的高度调整 */
+    text-align: center;
+    flex-direction: column;
+}
+
+.welcome-container h1 {
+    font-size: 3em;
+    margin: 0.2em;
+    color: #4CAF50;
+}
+
+.welcome-container p {
+    font-size: 1.5em;
+    color: #555;
+}
+
+/* Tools 页面样式 */
+.tools-container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.tools-container h1 {
+    font-size: 2.5em;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tools-container p {
+    font-size: 1.2em;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* 为工具卡片添加样式 */
+.tool-card {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.tool-card h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.tool-card p {
+    font-size: 1em;
+    color: #555;
+}
+
+.tool-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.tool-card ul li {
+    margin: 10px 0;
+}
+
+.tool-card ul li a {
+    color: #1a73e8;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.tool-card ul li a:hover {
+    text-decoration: underline;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit 2 Word List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Word List</a>
+                <div class="dropdown-content">
+                    <a href="unit1.html">Unit 1</a>
+                    <a href="unit2.html">Unit 2</a>
+                </div>
+            </li>
+            <li><a href="tools.html">Tools</a></li>
+        </ul>
+    </nav>
+    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for words...">
+
+    <table id="wordTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)"><strong>序号</strong></th>
+                <th onclick="sortTable(1)"><strong>Word/Phrase</strong></th>
+                <th><strong>Pronunciation</strong></th>
+                <th onclick="sortTable(3)"><strong>Meaning</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>revive</td>
+                <td>/rɪˈvaɪv/</td>
+                <td>v. 复兴，恢复</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>dim</td>
+                <td>/dɪm/</td>
+                <td>adj. 昏暗的; v. 使变暗</td>
+            </tr>
+            <!-- Add more words for Unit 2 -->
+        </tbody>
+    </table>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
