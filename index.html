@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #6c7ae0;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #e0e0e0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+        }
+        #searchInput {
+            width: 80%;
+            margin: 20px auto;
+            padding: 10px;
+            display: block;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for words...">
+
+    <table id="wordTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable(0)"><strong>序号</strong></th>
+                <th onclick="sortTable(1)"><strong>Word/Phrase</strong></th>
+                <th><strong>Pronunciation</strong></th>
+                <th onclick="sortTable(3)"><strong>Meaning</strong></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>massacre</td>
+                <td>/ˈmæsəkər/</td>
+                <td>n. 大屠杀; v. 残杀</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>succinct</td>
+                <td>/səkˈsɪŋkt/</td>
+                <td>adj. 简洁的</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>revive</td>
+                <td>/rɪˈvaɪv/</td>
+                <td>v. 复兴，恢复</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>dim</td>
+                <td>/dɪm/</td>
+                <td>adj. 昏暗的; v. 使变暗</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>beam</td>
+                <td>/biːm/</td>
+                <td>n. 光束; v. 发射</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>tremendous</td>
+                <td>/trəˈmɛndəs/</td>
+                <td>adj. 巨大的</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>hover over</td>
+                <td>/ˈhʌvər ˈoʊvər/</td>
+                <td>v. 悬停在……之上</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>destiny</td>
+                <td>/ˈdɛstɪni/</td>
+                <td>n. 命运</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>fundamental</td>
+                <td>/ˌfʌndəˈmɛntl/</td>
+                <td>adj. 基本的; n. 基本原理</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>assumption</td>
+                <td>/əˈsʌmpʃən/</td>
+                <td>n. 假设</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>rational</td>
+                <td>/ˈræʃənl/</td>
+                <td>adj. 理性的</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>entity</td>
+                <td>/ˈɛntɪti/</td>
+                <td>n. 实体</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>whereas</td>
+                <td>/ˌwɛərˈæz/</td>
+                <td>conj. 然而</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>immaterial</td>
+                <td>/ˌɪməˈtɪriəl/</td>
+                <td>adj. 无关紧要的</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>continuity</td>
+                <td>/ˌkɒntɪˈnjuːɪti/</td>
+                <td>n. 连续性</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>prevalent</td>
+                <td>/ˈprɛvələnt/</td>
+                <td>adj. 流行的</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>espouse</td>
+                <td>/ɪˈspaʊz/</td>
+                <td>v. 支持，拥护</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function searchTable() {
+            var input, filter, table, tr, td, i, j, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("wordTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 1; i < tr.length; i++) {
+                tr[i].style.display = "none";
+                td = tr[i].getElementsByTagName("td");
+                for (j = 0; j < td.length; j++) {
+                    if (td[j]) {
+                        txtValue = td[j].textContent || td[j].innerText;
+                        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                            tr[i].style.display = "";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+            </script>
+</body>
+</html>
+
