@@ -218,3 +218,7 @@ th, td {
         opacity: 1;
     }
 }
+
+.red-text {
+    color: red;
+}
