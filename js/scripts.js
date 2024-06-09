@@ -30,3 +30,25 @@ function toggleDropdown() {
         }
     });
 }
+
+async function askQuestion() {
+    const userInput = document.getElementById('user-input').value;
+    if (!userInput) return;
+
+    const chatLog = document.getElementById('chat-log');
+    chatLog.innerHTML += `<div class="chat-log-entry"><div class="user"><strong>You:</strong> ${userInput}</div></div>`;
+    
+    const response = await fetch('/ask', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ conversation: [{ role: 'user', content: userInput }] })
+    });
+
+    const result = await response.json();
+    chatLog.innerHTML += `<div class="chat-log-entry"><div class="ai"><strong>AI:</strong> ${result.answer}</div></div>`;
+    
+    document.getElementById('user-input').value = '';
+    chatLog.scrollTop = chatLog.scrollHeight;
+}
